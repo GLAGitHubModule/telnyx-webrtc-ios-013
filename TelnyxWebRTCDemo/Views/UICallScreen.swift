@@ -98,7 +98,7 @@ class UICallScreen: UIView {
                     self.callControlsSection.isHidden = false
                 }
                 break
-            case .ACTIVE, .HELD, .CONNECTING:
+            case .ACTIVE, .HELD, .CONNECTING, .ANSWERED:
                 self.callControlsSection.isHidden = false
                 self.endButton.isHidden = false
                 self.callButton.isHidden = true

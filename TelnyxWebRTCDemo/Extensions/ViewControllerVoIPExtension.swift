@@ -98,6 +98,9 @@ extension ViewController : VoIPDelegate {
                     self.incomingCallView.isHidden = true
                     self.callView.isHidden = false
                     break
+                case .ANSWERED:
+                    print("take a talk")
+                break
                 case .DONE:
                     self.resetCallStates()
                     break

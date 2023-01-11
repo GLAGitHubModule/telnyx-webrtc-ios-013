@@ -11,6 +11,10 @@ import CallKit
 
 extension AppDelegate: TxClientDelegate {
     
+    func onVertoMessageUpdate(callState: CallState, message: [String : Any]?) {
+        print("onVertoMessageUpdate \(callState) -- \(String(describing: message))")
+    }
+    
     func onSocketConnected() {
         print("AppDelegate:: TxClientDelegate onSocketConnected()")
         self.voipDelegate?.onSocketConnected()

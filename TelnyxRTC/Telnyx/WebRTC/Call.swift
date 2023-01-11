@@ -24,6 +24,9 @@ public enum CallState {
     case HELD
     /// Call has ended.
     case DONE
+    /// Call has Answered.
+    case ANSWERED
+
 }
 
 enum CallDirection : String {
@@ -171,7 +174,7 @@ public class Call {
         self.ringTonePlayer = self.buildAudioPlayer(fileName: ringtone)
         self.ringbackPlayer = self.buildAudioPlayer(fileName: ringbackTone)
 
-        self.updateCallState(callState: .RINGING)
+        self.updateCallState(callState: .NEW)
     }
 
     // MARK: - Private functions
@@ -539,6 +542,7 @@ extension Call {
 
         ringbackPlayer.numberOfLoops = -1 // infinite
         ringbackPlayer.play()
+        self.updateCallState(callState: .RINGING)
     }
 
     private func stopRingbackTone() {
